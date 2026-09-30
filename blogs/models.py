@@ -35,3 +35,27 @@ class Blog(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+class About(models.Model):
+
+    heading = models.CharField(max_length=50)
+    about_description = models.TextField(max_length=500)
+    created_at = models.DateField(auto_now=True)
+    updated_at = models.DateField(auto_now=True) 
+
+
+    def __str__(self) -> str:
+        return self.heading
+
+    class Meta:
+            verbose_name_plural = 'About'
+
+class SocialLink(models.Model):
+
+    platform = models.CharField(max_length=25)
+    link = models.URLField(max_length=100)
+    created_at = models.DateField(auto_now=True)
+    pdated_at = models.DateField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.platform
