@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="register-container">
+
+    <div class="register-card">
+
+        <h2>Create an Account</h2>
+        <p class="register-subtitle">Register to get started</p>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <div class="form-group">
+                <label for="{{ form.username.id_for_label }}">Username</label>
+
+                {{ form.username }}
+
+                {% if form.username.errors %}
+                    <div class="error-message">
+                        {{ form.username.errors }}
+                    </div>
+                {% endif %}
+
+                <small>
+                    Required. 150 characters or fewer. Letters, digits and
+                    @/./+/-/_ only.
+                </small>
+            </div>
+
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="{{ form.email.id_for_label }}">Email</label>
+
+                {{ form.email }}
+
+                {% if form.email.errors %}
+                    <div class="error-message">
+                        {{ form.email.errors }}
+                    </div>
+                {% endif %}
+            </div>
+
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="{{ form.password1.id_for_label }}">Password</label>
+
+                {{ form.password1 }}
+
+                {% if form.password1.errors %}
+                    <div class="error-message">
+                        {{ form.password1.errors }}
+                    </div>
+                {% endif %}
+
+                <ul class="password-help">
+                    <li>Your password can't be too similar to your other personal information.</li>
+                    <li>Your password must contain at least 8 characters.</li>
+                    <li>Your password can't be a commonly used password.</li>
+                    <li>Your password can't be entirely numeric.</li>
+                </ul>
+            </div>
+
+
+            <!-- Password Confirmation -->
+            <div class="form-group">
+                <label for="{{ form.password2.id_for_label }}">
+                    Password confirmation
+                </label>
+
+                {{ form.password2 }}
+
+                {% if form.password2.errors %}
+                    <div class="error-message">
+                        {{ form.password2.errors }}
+                    </div>
+                {% endif %}
+
+                <small>
+                    Enter the same password as before, for verification.
+                </small>
+            </div>
+
+
+            <!-- Submit -->
+            <button type="submit" class="register-btn">
+                Create Account
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

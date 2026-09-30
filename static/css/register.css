@@ -1,0 +1,169 @@
+/* Registration Page */
+
+.register-container {
+    min-height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    background: #f5f7fb;
+}
+
+
+/* Card */
+
+.register-card {
+    width: 100%;
+    max-width: 500px;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Heading */
+
+.register-card h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #222;
+}
+
+
+.register-subtitle {
+    text-align: center;
+    color: #777;
+    margin-top: 8px;
+    margin-bottom: 30px;
+}
+
+
+/* Form */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* Inputs */
+
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 15px;
+    border: 1px solid #d7dbe2;
+    border-radius: 8px;
+    outline: none;
+    box-sizing: border-box;
+    transition: 0.2s ease;
+    background: #fff;
+}
+
+
+.form-group input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+
+/* Help text */
+
+.form-group small {
+    display: block;
+    margin-top: 7px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* Password requirements */
+
+.password-help {
+    margin-top: 8px;
+    padding-left: 18px;
+    color: #777;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+
+.password-help li {
+    margin-bottom: 2px;
+}
+
+
+/* Errors */
+
+.error-message {
+    margin-top: 6px;
+    color: #dc3545;
+    font-size: 13px;
+}
+
+
+/* Remove Django's error list styling */
+
+.error-message ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+/* Button */
+
+.register-btn {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    border-radius: 8px;
+    background: #4f46e5;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+
+.register-btn:hover {
+    background: #4338ca;
+    transform: translateY(-1px);
+}
+
+
+.register-btn:active {
+    transform: translateY(0);
+}
+
+
+/* Mobile */
+
+@media (max-width: 576px) {
+
+    .register-container {
+        padding: 25px 15px;
+    }
+
+    .register-card {
+        padding: 28px 22px;
+    }
+
+    .register-card h2 {
+        font-size: 24px;
+    }
+
+}
