@@ -1,0 +1,61 @@
+{% extends "base.html" %} 
+ 
+{% block content %} 
+ 
+{% include "dashboard/sidebar.html" %} 
+ 
+<section class="category-list" aria-labelledby="category-list-title"> 
+    <div class="category-header">
+        <h1 id="category-list-title">Categories</h1>
+
+        <a href="{% url 'add_category' %}" class="category-add-btn">
+            + Add Category
+        </a>
+    </div>
+
+    <div class="category-table-wrapper"> 
+        <table class="category-table"> 
+            <thead> 
+                <tr> 
+                    <th scope="col">ID</th> 
+                    <th scope="col">Category Name</th> 
+                    <th scope="col">Created</th> 
+                    <th scope="col">Updated</th> 
+                    <th scope="col" class="category-actions-heading"> 
+                        <span>Action</span> 
+                    </th> 
+                </tr> 
+            </thead> 
+
+            <tbody> 
+                {% for category in category_list %} 
+                <tr> 
+                    <td>{{ category.id }}</td> 
+                    <td>{{ category.category_name }}</td> 
+                    <td>{{ category.created_at|date:"M j, Y" }}</td> 
+                    <td>{{ category.updated_at|date:"M j, Y" }}</td> 
+                    <td class="category-actions"> 
+                        <a href="{% url 'edit_category' category.id %}">
+                            <span aria-hidden="true">&#9998;</span> 
+                        </a>
+
+                        <a href="{% url 'delete_category' category.id %}">
+                            <span aria-hidden="true">&#215;</span> 
+                        </a> 
+                    </td> 
+                </tr> 
+
+                {% empty %} 
+                <tr> 
+                    <td class="category-empty" colspan="5">
+                        No categories found.
+                    </td> 
+                </tr> 
+                {% endfor %} 
+            </tbody> 
+        </table> 
+    </div> 
+</section> 
+</main> 
+ 
+{% endblock %}

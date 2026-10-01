@@ -8,7 +8,6 @@ def home(request):
 
     categories = Category.objects.all()
     featured_post = Blog.objects.filter(is_featured = True, status = 'published').order_by('updated_at')
-    print(featured_post)
     posts = Blog.objects.filter(is_featured = False, status = 'published').order_by('updated_at')
 
     try:
@@ -55,7 +54,7 @@ def login(request):
 
             if user is not None:
                 auth.login(request, user)
-                return redirect('home')
+                return redirect('dashboard')
         
     form = AuthenticationForm()
 

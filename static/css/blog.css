@@ -67,3 +67,32 @@ h1, h2, h3, h4, h5, h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.category-header h1 {
+    margin: 0;
+}
+
+.category-add-btn {
+    display: inline-block;
+    padding: 10px 18px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.category-add-btn:hover {
+    background-color: #0056b3;
+    color: #fff;
+}

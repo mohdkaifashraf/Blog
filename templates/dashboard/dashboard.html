@@ -1,0 +1,23 @@
+
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<span> Logged in as {{ user }} </span>
+
+{% include "dashboard/sidebar.html" %}
+
+    
+	<section class="dashboard-summary" aria-label="Blog totals">
+		<article class="dashboard-stat" id="categories">
+			<h2>ALL CATEGORIES</h2>
+			<p>{{ category_count }}</p>
+		</article>
+		<article class="dashboard-stat" id="posts">
+			<h2>ALL POSTS</h2>
+			<p>{{ blogs_count }}</p>
+		</article>
+	</section>
+</main>
+{% endblock content %}

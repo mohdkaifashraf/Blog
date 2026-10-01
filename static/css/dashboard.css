@@ -1,0 +1,136 @@
+.dashboard-page {
+		display: grid;
+		grid-template-columns: 150px minmax(0, 1fr);
+		gap: 16px;
+		max-width: 960px;
+		margin: 16px auto 40px;
+		color: #333;
+	}
+
+	.dashboard-menu {
+		align-self: start;
+		background: #f8f8f8;
+		padding: 6px 0;
+	}
+
+	.dashboard-menu a {
+		display: block;
+		padding: 8px 12px;
+		color: #555;
+		font-size: 14px;
+		text-decoration: none;
+	}
+
+	.dashboard-menu a:hover,
+	.dashboard-menu a:focus {
+		background: #eee;
+		color: #222;
+	}
+
+	.dashboard-menu a[aria-current="page"] {
+		background: #f5bd00;
+		color: #333;
+	}
+
+	.dashboard-summary {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 16px;
+	}
+
+	.dashboard-stat {
+		min-height: 92px;
+		border: 1px solid #e7e7e7;
+		text-align: center;
+	}
+
+	.dashboard-stat h2 {
+		margin: 0;
+		padding: 8px 10px;
+		background: #f6f6f6;
+		border-bottom: 1px solid #e7e7e7;
+		font-size: 13px;
+		font-weight: 700;
+	}
+
+	.dashboard-stat p {
+		margin: 0;
+		padding: 10px;
+		font-size: 16px;
+		font-weight: 700;
+	}
+
+	.category-list {
+		min-width: 0;
+	}
+
+	.category-list h1 {
+		margin: 0 0 12px;
+		font-size: 20px;
+		font-weight: 700;
+	}
+
+	.category-table-wrapper {
+		overflow-x: auto;
+		border: 1px solid #e7e7e7;
+	}
+
+	.category-table {
+		width: 100%;
+		border-collapse: collapse;
+		font-size: 14px;
+	}
+
+	.category-table th,
+	.category-table td {
+		padding: 10px 12px;
+		border-bottom: 1px solid #e7e7e7;
+		text-align: left;
+	}
+
+	.category-table th {
+		background: #f6f6f6;
+		font-weight: 700;
+	}
+
+	.category-table tbody tr:last-child td {
+		border-bottom: 0;
+	}
+
+	.category-table tbody tr:hover {
+		background: #fafafa;
+	}
+
+	.category-empty {
+		color: #666;
+		text-align: center !important;
+	}
+
+	@media (max-width: 575px) {
+		.dashboard-page {
+			grid-template-columns: 1fr;
+			gap: 12px;
+			margin-top: 8px;
+		}
+
+		.dashboard-menu {
+			display: grid;
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+
+		.dashboard-menu a {
+			padding: 9px 5px;
+			text-align: center;
+			font-size: 12px;
+		}
+
+		.dashboard-summary {
+			gap: 10px;
+		}
+	}
+
+	@media (max-width: 360px) {
+		.dashboard-summary {
+			grid-template-columns: 1fr;
+		}
+	}
