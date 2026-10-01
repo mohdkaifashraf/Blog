@@ -2,6 +2,6 @@
 	<nav class="dashboard-menu" aria-label="Dashboard navigation">
 		<a href="{% url 'dashboard' %}"{% if request.resolver_match.url_name == 'dashboard' %} aria-current="page"{% endif %}>Dashboard</a>
 		<a href="{% url 'categories' %}"{% if request.resolver_match.url_name == 'categories' %} aria-current="page"{% endif %}>Categories</a>
-		<a href="{% url 'admin:blogs_blog_changelist' %}"{% if request.resolver_match.view_name == 'admin:blogs_blog_changelist' %} aria-current="page"{% endif %}>Posts</a>
+		<a href="{% url 'posts' %}"{% if request.resolver_match.view_name == 'admin:blogs_blog_changelist' %} aria-current="page"{% endif %}>Posts</a>
 		<a href="{% url 'logout' %}"{% if request.resolver_match.url_name == 'logout' %} aria-current="page"{% endif %}>Logout</a>
 	</nav>

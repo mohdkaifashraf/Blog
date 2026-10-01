@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% include "dashboard/sidebar.html" %}
+
+{% load crispy_forms_tags %}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+
+            <!-- Card -->
+            <div class="card shadow-lg border-0 rounded-4">
+
+                <!-- Header -->
+                <div class="card-header bg-primary text-white text-center py-4 rounded-top-4">
+                    <h2 class="mb-1 fw-bold">
+                        <i class="bi bi-folder-plus"></i> Add Post
+                    </h2>
+                    <p class="mb-0 opacity-75">
+                        Add new blog Post
+                    </p>
+                </div>
+
+                <!-- Form -->
+                <div class="card-body p-4 p-md-5">
+
+                    <form action="{% url 'add_post' %}" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        <div class="mb-4">
+                            {{ form|crispy }}
+                        </div>
+
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+
+                            <button type="submit"
+                                    class="btn btn-primary px-4">
+                                <i class="bi bi-check-circle"></i>
+                                Add Category
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer bg-light text-center text-muted py-3">
+                    <small>
+                        Make sure the category name is unique.
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

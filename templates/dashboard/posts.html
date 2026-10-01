@@ -1,0 +1,65 @@
+{% extends "base.html" %} 
+ 
+{% block content %} 
+ 
+{% include "dashboard/sidebar.html" %} 
+ 
+<section class="category-list" aria-labelledby="category-list-title"> 
+    <div class="category-header">
+        <h1 id="category-list-title">All Posts</h1>
+
+        <a href="{% url 'add_post' %}" class="category-add-btn">
+            + Add Blog Post
+        </a>
+    </div>
+
+    <div class="category-table-wrapper"> 
+        <table class="category-table"> 
+            <thead> 
+                <tr> 
+                    <th scope="col">ID</th> 
+                    <th scope="col">Title</th> 
+                    <th scope="col">category</th> 
+                    <th scope="col">Author</th>
+                    <th scope="col">Status</th> 
+                    <th scope="col">Featured</th>
+                    <th scope="col">Action</th> 
+                </tr> 
+            </thead> 
+
+            <tbody> 
+                {% for post in posts %} 
+                
+                <tr>
+                    <td>{{ post.id }}</td>
+                    <td>{{ post.title }}</td>
+                    <td>{{ post.category }}</td>
+                    <td>{{ post.author }}</td>
+                    <td>{{ post.status }}</td>
+                    <td>{% if post.is_featured %} ✅ {% else %} ❌ {% endif %}</td> 
+
+                    <td class="category-actions"> 
+                        <a href="{% url 'edit_post' post.id %}">
+                            <span aria-hidden="true">&#9998;</span> 
+                        </a>
+
+                        <a href="{% url 'delete_post' post.id %}">
+                            <span aria-hidden="true">&#215;</span> 
+                        </a> 
+                    </td> 
+                </tr> 
+
+                {% empty %} 
+                <tr> 
+                    <td class="category-empty" colspan="5">
+                        No categories found.
+                    </td> 
+                </tr> 
+                {% endfor %} 
+            </tbody> 
+        </table> 
+    </div> 
+</section> 
+</main> 
+ 
+{% endblock %} 
