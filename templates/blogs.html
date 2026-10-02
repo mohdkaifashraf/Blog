@@ -34,6 +34,120 @@
 
 				<div class="blog-post-content">{{ single_blog.blog_body|linebreaks }}</div>
 
+				<!-- Comments Section -->
+				<section class="comments-section">
+
+					<!-- Comments Header -->
+					<div class="comments-header">
+						<h3>
+							Comments
+							<span class="comment-count">{{ comment_count }}</span>
+						</h3>
+					</div>
+
+
+					<!-- Add Comment -->
+					<div class="add-comment">
+
+						<div class="comment-avatar">
+							{% if user.is_authenticated %}
+								{{ user.username|first|upper }}
+							{% else %}
+								?
+							{% endif %}
+						</div>
+						<div class="comment-form">
+
+							{% if user.is_authenticated %}
+
+								<form method="POST">
+									{% csrf_token %}
+
+									<textarea
+										name="comment"
+										class="comment-input"
+										placeholder="Add a comment..."
+										rows="1"
+										required></textarea>
+
+									<div class="comment-actions">
+										<button type="button" class="cancel-btn">
+											Cancel
+										</button>
+
+										<button type="submit" class="comment-btn">
+											Comment
+										</button>
+									</div>
+
+								</form>
+
+							{% else %}
+
+								<p class="login-message">
+									Please login to add a comment.
+								</p>
+
+							{% endif %}
+
+						</div>
+
+					</div>
+
+
+					<!-- Existing Comments -->
+					{% if comments %}
+
+						<div class="comments-list">
+
+							{% for comment in comments %}
+
+								<div class="comment-card">
+
+									<!-- Avatar -->
+									<div class="comment-avatar">
+										{{ comment.user.username|first|upper }}
+									</div>
+
+
+									<!-- Comment -->
+									<div class="comment-content">
+
+										<div class="comment-user">
+											{{ comment.user.username }}
+
+											<span class="comment-date">
+												{{ comment.created_at|date:"M d, Y" }}
+											</span>
+										</div>
+
+										<p class="comment-text">
+											{{ comment.comment }}
+										</p>
+
+									</div>
+
+								</div>
+
+							{% endfor %}
+
+						</div>
+
+					{% else %}
+
+						<div class="no-comments">
+							<div class="no-comments-icon">
+								💬
+							</div>
+
+							<h4>No comments yet</h4>
+
+							<p>Be the first one to share your thoughts.</p>
+						</div>
+
+					{% endif %}
+
+				</section>
 				<p class="mt-4">
 					<a href="{% url 'post_by_category' single_blog.category_id %}">More from {{ single_blog.category }}</a>
 					<span class="mx-2">|</span>

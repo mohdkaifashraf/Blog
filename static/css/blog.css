@@ -96,3 +96,345 @@ h1, h2, h3, h4, h5, h6 {
     background-color: #0056b3;
     color: #fff;
 }
+
+
+.comments-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #eee;
+}
+
+/* Header */
+
+.comments-header {
+    margin-bottom: 30px;
+}
+
+.comments-header h3 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #222;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comments-header p {
+    color: #777;
+    margin-top: 5px;
+}
+
+.comment-count {
+    background: #f1f3f5;
+    color: #555;
+    font-size: 14px;
+    padding: 5px 11px;
+    border-radius: 20px;
+}
+
+
+/* =================================
+   COMMENTS SECTION
+================================= */
+
+.comments-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #e5e5e5;
+}
+
+
+/* Header */
+
+.comments-header {
+    margin-bottom: 25px;
+}
+
+.comments-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment-count {
+    font-size: 13px;
+    font-weight: 600;
+
+    background: #f1f1f1;
+    color: #555;
+
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+
+
+/* =================================
+   ADD COMMENT
+================================= */
+
+.add-comment {
+    display: flex;
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+/* Avatar */
+
+.comment-avatar {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    border-radius: 50%;
+
+    background: #212529;
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* Form */
+
+.comment-form {
+    flex: 1;
+}
+
+.comment-input {
+    width: 100%;
+
+    border: none;
+    border-bottom: 1px solid #aaa;
+
+    outline: none;
+
+    resize: none;
+
+    font-size: 15px;
+
+    padding: 10px 5px;
+
+    background: transparent;
+
+    transition: border-color 0.2s;
+}
+
+.comment-input:focus {
+    border-bottom: 2px solid #212529;
+}
+
+
+/* Buttons */
+
+.comment-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+.comment-btn,
+.cancel-btn {
+    border: none;
+
+    padding: 8px 18px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.comment-btn {
+    background: #212529;
+    color: white;
+}
+
+.comment-btn:hover {
+    background: #000;
+}
+
+.cancel-btn {
+    background: transparent;
+    color: #555;
+}
+
+.cancel-btn:hover {
+    background: #f1f1f1;
+}
+
+
+/* =================================
+   COMMENTS SCROLL AREA
+================================= */
+
+.comments-list {
+
+    max-height: 450px;
+
+    overflow-y: auto;
+
+    padding-right: 10px;
+
+    scroll-behavior: smooth;
+}
+
+
+/* Scrollbar */
+
+.comments-list::-webkit-scrollbar {
+    width: 7px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+    background: #bbb;
+    border-radius: 10px;
+}
+
+.comments-list::-webkit-scrollbar-thumb:hover {
+    background: #888;
+}
+
+
+/* =================================
+   COMMENT CARD
+================================= */
+
+.comment-card {
+    display: flex;
+
+    gap: 15px;
+
+    padding: 15px 5px;
+
+    margin-bottom: 8px;
+}
+
+
+/* Comment Content */
+
+.comment-content {
+    flex: 1;
+}
+
+.comment-user {
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #222;
+}
+
+.comment-date {
+    font-size: 12px;
+
+    font-weight: 400;
+
+    color: #888;
+
+    margin-left: 5px;
+}
+
+.comment-text {
+    margin: 6px 0 0;
+
+    font-size: 15px;
+
+    line-height: 1.6;
+
+    color: #444;
+}
+
+
+/* =================================
+   NO COMMENTS
+================================= */
+
+.no-comments {
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background: #fafafa;
+
+    border: 1px dashed #ddd;
+
+    border-radius: 12px;
+}
+
+.no-comments-icon {
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.no-comments h4 {
+    margin: 0 0 5px;
+
+    font-size: 18px;
+}
+
+.no-comments p {
+    margin: 0;
+
+    color: #888;
+
+    font-size: 14px;
+}
+
+.login-message {
+    color: #777;
+
+    margin: 10px 0;
+}
+
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 576px) {
+
+    .comments-section {
+        margin-top: 30px;
+    }
+
+    .comments-header h3 {
+        font-size: 21px;
+    }
+
+    .comments-list {
+        max-height: 400px;
+    }
+
+    .comment-card {
+        gap: 10px;
+    }
+
+    .comment-avatar {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+    }
+
+}
