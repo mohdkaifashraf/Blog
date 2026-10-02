@@ -4,7 +4,6 @@ __pycache__/
 *$py.class
 
 # Local databases
-db.sqlite3
 db.sqlite3-journal
 
 # Virtual Environments (adjust to match your directory name)
@@ -23,8 +22,6 @@ build/
 local_settings.py
 
 # Media files (user uploads) and collected static assets
-media/
-staticfiles/
 
 # Logs and debug files
 *.log
