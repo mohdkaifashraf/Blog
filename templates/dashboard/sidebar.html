@@ -2,10 +2,10 @@
 	<nav class="dashboard-menu" aria-label="Dashboard navigation">
 		<a href="{% url 'dashboard' %}"{% if request.resolver_match.url_name == 'dashboard' %} aria-current="page"{% endif %}>Dashboard</a>
 		{% if perms.auth.add_user %}               
-			<a href="{% url 'users' %}"{% if request.resolver_match.url_name == 'Users' %} aria-current="page"{% endif %}>Users</a>
+			<a href="{% url 'users' %}"{% if request.resolver_match.url_name == 'users' or request.resolver_match.url_name == 'add_user' or request.resolver_match.url_name == 'edit_user' or request.resolver_match.url_name == 'delete_user' %} aria-current="page"{% endif %}>Users</a>
 		{% endif %} 
-			<a href="{% url 'categories' %}"{% if request.resolver_match.url_name == 'categories' %} aria-current="page"{% endif %}>Categories</a>
-		<a href="{% url 'posts' %}"{% if request.resolver_match.view_name == 'admin:blogs_blog_changelist' %} aria-current="page"{% endif %}>Posts</a>
+			<a href="{% url 'categories' %}"{% if request.resolver_match.url_name == 'categories' or request.resolver_match.url_name == 'add_category' or request.resolver_match.url_name == 'edit_category' or request.resolver_match.url_name == 'delete_category' %} aria-current="page"{% endif %}>Categories</a>
+		<a href="{% url 'posts' %}"{% if request.resolver_match.url_name == 'posts' or request.resolver_match.url_name == 'add_post' or request.resolver_match.url_name == 'edit_post' or request.resolver_match.url_name == 'delete_post' %} aria-current="page"{% endif %}>Posts</a>
 		<a href="{% url 'logout' %}"{% if request.resolver_match.url_name == 'logout' %} aria-current="page"{% endif %}>Logout</a>
 
 	</nav>

@@ -31,7 +31,7 @@ def register(request):
 
         if form.is_valid():
             form.save()
-            return redirect('register')
+            return redirect('home')
         else:
             print(form.errors)
     else:
@@ -54,7 +54,7 @@ def login(request):
 
             if user is not None:
                 auth.login(request, user)
-                return redirect('dashboard')
+                return redirect('home')
         
     form = AuthenticationForm()
 
@@ -68,3 +68,7 @@ def logout(request):
     auth.logout(request)
 
     return redirect('home')
+
+
+def page_not_found(request, exception=None):
+    return render(request, '404.html', status=404)

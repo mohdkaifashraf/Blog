@@ -16,50 +16,43 @@
     <link rel="stylesheet" href="{% static 'css/register.css' %}">
   </head>
 <body>
-    <div class="container">
-    <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
+    <div class="container site-container">
+    <header class="blog-header site-header">
+      <a class="blog-header-logo text-dark" href="/">Django Blog</a>
 
-            <!-- Logo -->
-            <div class="col-4">
-                <a class="blog-header-logo text-dark" href="/">Django Blog</a>
-            </div>
-
-            <!-- Search -->
-            <div class="col-4 d-flex justify-content-end">
-                <form action="{% url 'search' %}" method="GET" class="d-flex">
-                    <input 
-                        type="text" 
-                        name="keyword" 
-                        class="form-control"
-                        placeholder="Search..."
-                        value="{{ keyword }}"
-                    >
-                    <button type="submit" class="btn btn-outline-secondary ms-2">
-                        🔍
-                    </button>
-                </form>
-            </div>
-
-            <!-- Login / Register -->
-            <div class="col-4 d-flex justify-content-end align-items-center">
+      <form action="{% url 'search' %}" method="GET" class="site-search">
+        <label class="sr-only" for="site-search">Search posts</label>
+        <input
+          id="site-search"
+          type="text"
+          name="keyword"
+          class="form-control"
+          placeholder="Search posts..."
+          value="{{ keyword }}"
+        >
+        <button type="submit" class="btn btn-outline-secondary" aria-label="Search">
+          🔍
+        </button>
+      </form>
+      <div class="site-account">
+                {% if perms.blogs.view_blog %}
+                <a href="{% url 'dashboard' %}" class="admin-dashboard-btn">Admin Dashboard</a>
+                {% endif %}
                 {% if not user.is_authenticated %}
                 <a class="btn btn-sm btn-warning" href="{% url 'login' %}">Login</a>
                 <a class="btn btn-sm btn-outline-secondary ms-2" href="{% url 'register' %}">Register</a>
                 
                 {% else %}
-                <span> you are logged in as {{ user }} </span>
+                <span> {{ user }} </span>
                 &nbsp
                 <span> <a href="{% url 'logout' %}"> Log out </a></span>
                 {% endif %}
-            </div>
-
         </div>
     </header>
 
 
-      <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
+      <div class="nav-scroller category-nav mb-4">
+        <nav class="nav">
           {% for cat in categories %}
             <a class="p-2 text-muted" href="{% url 'post_by_category' cat.id %}">{{ cat.category_name}} </a>
           {% endfor %}
@@ -78,8 +71,8 @@
       
       {% comment %}this is a footer  {% endcomment %}
 
-    <footer class="blog-footer">
-    <p>Django blog built with � by <a href="#">kaif</a></p>
+    <footer class="blog-footer site-footer">
+    <p>Built by <a href="https://www.youtube.com/@thoughts-ka">kaif</a></p>
     </footer>
 </body>
 </html>

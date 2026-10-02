@@ -3,14 +3,16 @@
 
 {% block content %}
 {% load crispy_forms_tags %}
-<h1>login</h1>
-
-<form action="{% url 'login' %}" method='POST'>
-    {% csrf_token %}
-    {{ form | crispy }}
-
-    <button type="submit" class="btrn">login</button>
-
-</form>
+<section class="login-container">
+    <div class="login-card">
+        <h1>Welcome back</h1>
+        <p class="login-subtitle">Log in to your account</p>
+        <form action="{% url 'login' %}" method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <button type="submit" class="login-submit">Login</button>
+        </form>
+    </div>
+</section>
 
 {% endblock  %}

@@ -6,52 +6,40 @@
 
 {% load crispy_forms_tags %}
 
-<div class="container py-5">
+<div class="container py-4 dashboard-form-shell">
     <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
 
             <!-- Card -->
-            <div class="card shadow-lg border-0 rounded-4">
+            <div class="card dashboard-form-card">
 
                 <!-- Header -->
-                <div class="card-header bg-primary text-white text-center py-4 rounded-top-4">
+                <div class="card-header dashboard-form-heading">
                     <h2 class="mb-1 fw-bold">
-                        <i class="bi bi-folder-plus"></i> Edit User
+                        Edit User
                     </h2>
                     <p class="mb-0 opacity-75">
-                        Edit User
+                        Update account details and access.
                     </p>
                 </div>
 
                 <!-- Form -->
                 <div class="card-body p-4 p-md-5">
 
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form class="dashboard-user-form" action="" method="POST" enctype="multipart/form-data">
                         {% csrf_token %}
 
-                        <div class="mb-4">
+                        <div class="dashboard-form-fields">
                             {{ form|crispy }}
                         </div>
 
-                        <div class="d-flex justify-content-between align-items-center mt-4">
-
-                            <button type="submit"
-                                    class="btn btn-primary px-4">
-                                <i class="bi bi-check-circle"></i>
-                                Edit User
-                            </button>
-
+                        <div class="dashboard-form-actions">
+                            <a class="dashboard-form-cancel" href="{% url 'users' %}">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
                         </div>
 
                     </form>
 
-                </div>
-
-                <!-- Footer -->
-                <div class="card-footer bg-light text-center text-muted py-3">
-                    <small>
-                        Make sure the category name is unique.
-                    </small>
                 </div>
 
             </div>
