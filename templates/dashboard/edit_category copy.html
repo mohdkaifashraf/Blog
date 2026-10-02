@@ -1,3 +1,4 @@
+
 {% extends "base.html" %}
 
 {% block content %}
@@ -16,17 +17,14 @@
                 <!-- Header -->
                 <div class="card-header bg-primary text-white text-center py-4 rounded-top-4">
                     <h2 class="mb-1 fw-bold">
-                        <i class="bi bi-folder-plus"></i> Add Post
+                        <i class="bi bi-folder-plus"></i> Edit Category
                     </h2>
-                    <p class="mb-0 opacity-75">
-                        Edit blog Post
-                    </p>
                 </div>
 
                 <!-- Form -->
                 <div class="card-body p-4 p-md-5">
 
-                    <form action="{% url 'edit_post' post.id %}" method="POST" enctype="multipart/form-data">
+                    <form action="{% url 'edit_category' category.id %}" method="POST">
                         {% csrf_token %}
 
                         <div class="mb-4">
@@ -38,7 +36,7 @@
                             <button type="submit"
                                     class="btn btn-primary px-4">
                                 <i class="bi bi-check-circle"></i>
-                                Add Category
+                                Edit Category
                             </button>
 
                         </div>
@@ -61,3 +59,4 @@
 </div>
 
 {% endblock %}
+    

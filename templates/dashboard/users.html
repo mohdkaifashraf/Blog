@@ -1,0 +1,69 @@
+{% extends "base.html" %} 
+ 
+{% block content %} 
+ 
+{% include "dashboard/sidebar.html" %} 
+ 
+<section class="category-list" aria-labelledby="category-list-title"> 
+    <div class="category-header">
+        <h1 id="category-list-title">All Users</h1>
+
+        <a href="{% url 'add_user' %}" class="category-add-btn">
+            + Add User
+        </a>
+    </div>
+
+    <div class="category-table-wrapper"> 
+        <table class="category-table"> 
+            <thead> 
+                <tr> 
+                    <th scope="col">ID</th> 
+                    <th scope="col">user Name</th> 
+                    <th scope="col">Full Name</th> 
+                    <th scope="col">Email</th>
+                    <th scope="col">Active</th> 
+                    <th scope="col">Staff</th>
+                    <th scope="col">Super User</th> 
+                    <th scope="col">Action</th>
+
+                </tr> 
+            </thead> 
+
+            <tbody> 
+                {% for user in users %} 
+                
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.first_name }} {{user.last_name}} </td>
+                    <td>{{ user.email }}</td>
+                    <td>{% if user.is_active %} ✅ {% else %} ❌ {% endif %}</td>
+                    <td>{% if user.is_staff %} ✅ {% else %} ❌ {% endif %}</td>
+                    <td>{{ user.is_superuser }}</td>
+
+
+                    <td class="category-actions"> 
+                        <a href="{% url 'edit_user' user.id %}">
+                            <span aria-hidden="true">&#9998;</span> 
+                        </a>
+
+                        <a href="{% url 'delete_user' user.id %}">
+                            <span aria-hidden="true">&#215;</span> 
+                        </a> 
+                    </td> 
+                </tr> 
+
+                {% empty %} 
+                <tr> 
+                    <td class="category-empty" colspan="5">
+                        No user found.
+                    </td> 
+                </tr> 
+                {% endfor %} 
+            </tbody> 
+        </table> 
+    </div> 
+</section> 
+</main> 
+ 
+{% endblock %} 
