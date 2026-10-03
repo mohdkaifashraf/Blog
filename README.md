@@ -2,6 +2,8 @@
 
 A Django-based blog with public post browsing, category navigation, search, comments, and a dashboard for managing blog content and users.
 
+The deployed site is available at <https://kaif.pythonanywhere.com>.
+
 ## Features
 
 - Browse published posts and featured posts.
@@ -33,7 +35,6 @@ python manage.py createsuperuser
 python manage.py runserver
 ```
 
-The deployed site is available at <https://kaif.pythonanywhere.com>.
 
 The virtual environment activation command for Command Prompt is:
 
